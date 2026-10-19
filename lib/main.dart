@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'loginPage.dart';
+import 'register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -41,15 +42,31 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 25),
+
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
+                Navigator.push(
+                  context,
                   MaterialPageRoute(
                     builder: (context) => const LoginPage(),
                   ),
                 );
               },
               child: const Text('Login'),
+            ),
+
+            const SizedBox(height: 15),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterPage(),
+                  ),
+                );
+              },
+              child: const Text('Register'),
             ),
           ],
         ),
